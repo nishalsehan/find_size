@@ -8,6 +8,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /// Build and return the main user interface for the application.
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
         body: Center(
           child: FindSize(
             onChange: (Size size) {
+              /// Callback function to handle size changes and print the size.
               print("Button size: $size");
             },
             child: ElevatedButton(
