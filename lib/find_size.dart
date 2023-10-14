@@ -3,13 +3,13 @@ library find_size;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-typedef OnWidgetSizeChange = void Function(Size size);
+typedef OnWidgetSizeChange = void Function(Size contentSize);
 
-class MeasureSizeRenderObject extends RenderProxyBox {
+class FindSizeRenderObject extends RenderProxyBox {
   late Size oldSize = Size.zero;
   final OnWidgetSizeChange onChange;
 
-  MeasureSizeRenderObject(this.onChange);
+  FindSizeRenderObject(this.onChange);
 
   @override
   void performLayout() {
@@ -25,10 +25,10 @@ class MeasureSizeRenderObject extends RenderProxyBox {
   }
 }
 
-class MeasureSize extends SingleChildRenderObjectWidget {
+class FindSize extends SingleChildRenderObjectWidget {
   final OnWidgetSizeChange onChange;
 
-  const MeasureSize({
+  const FindSize({
     Key? key,
     required this.onChange,
     required Widget child,
@@ -36,6 +36,6 @@ class MeasureSize extends SingleChildRenderObjectWidget {
 
   @override
   RenderObject createRenderObject(BuildContext context) {
-    return MeasureSizeRenderObject(onChange);
+    return FindSizeRenderObject(onChange);
   }
 }
